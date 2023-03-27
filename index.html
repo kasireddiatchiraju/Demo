@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <title>Document</title>
+    <style>
+        body{
+            width: 100%;
+            height: 100%;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            
+
+        }
+        #time{
+            position: absolute;
+            bottom:330px;
+            left: 25vw;
+            font-size: 180px;
+            color: red;
+          }
+          #date{
+            position: absolute;
+            bottom:170px;
+            left: 13vw;
+            font-size: 180px;
+            color: rgb(212, 0, 255);
+
+          }
+          #day{
+            position: absolute;
+            bottom:40px;
+            left: 30vw;
+            font-size: 180px;
+            color: rgb(0, 123, 255);
+          }
+          #seconds{
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            bottom:0px;
+            left: 38vw;
+            font-size: 400px;
+            color: rgb(0, 255, 195);
+            
+          }
+
+       
+    </style>
+</head>
+<body id="image" onload="raju()">
+    <h1 id="time"></h1>
+    <h1 id="date"></h1>
+    <h1 id="day"></h1>
+    <h1 id="seconds"></h1>
+    <script>
+        function raju()
+        {
+
+        
+        var date=new Date()
+        var hh=date.getHours();
+        var min=date.getMinutes();
+        var yy=date.getFullYear();
+        var ss=date.getSeconds();
+        var mon=date.getMonth();
+        var d=date.getDay();
+        var date=date.getDate();
+        
+        var am_pm="AM";
+        
+        
+        if(hh>=12)
+        {
+            am_pm="PM";
+            if(hh>=13)
+            {
+                hh=hh-12;
+            }
+
+        }
+        switch(d)
+        {
+            case 0:
+                d="sunday"
+                document.getElementById("image").style.backgroundImage="url(./Clockimages/0.jpg)"
+                break;
+                case 1:
+                d="monday"
+                document.getElementById("image").style.backgroundImage="url(./Clockimages/1.jpg)"
+                break;
+                case 2:
+                d="tuesday"
+                document.getElementById("image").style.backgroundImage="url(./Clockimages/2.jpg)"
+                break;
+                case 3:
+                d="wednesday"
+                document.getElementById("image").style.backgroundImage="url(./Clockimages/3.jpg)"
+                break;
+                case 4:
+                d="thursday"
+                document.getElementById("image").style.backgroundImage="url(./Clockimages/4.jpg)"
+                break;
+                case 5:
+                d="friday"
+                document.getElementById("image").style.backgroundImage="url(./Clockimages/5.jpg)"
+                break;
+                case 6:
+                d="saturday"
+                document.getElementById("image").style.backgroundImage="url(./Clockimages/6.jpg)"
+                document.getElementById("image").style.color="yellow"
+                break;
+        }
+        if(mon==0)
+        {
+            mon="january"
+        }
+        else if(mon==1)
+        {
+            mon="february"
+            
+        }
+        else if(mon==2)
+        {
+            mon="march"
+            
+        }
+        else if(mon==3)
+        {
+            mon="april"
+            
+        }
+        else if(mon==4)
+        {
+            mon="may"
+            
+        }
+        else if(mon==5)
+        {
+            mon="june"
+            
+        }
+        else if(mon==6)
+        {
+            mon="july"
+            
+        }
+        else if(mon==7)
+        {
+            mon="august"
+            
+        }
+        else if(mon==8)
+        {
+            mon="september"
+            
+        }
+        else if(mon==9)
+        {
+            mon="october"
+            
+        }
+        else if(mon==10)
+        {
+            mon="november"
+            
+        }
+        else if(mon==11)
+        {
+            mon="december"
+            
+        }
+        var totaltime=hh+":"+min+" "+am_pm
+        document.getElementById("time").innerHTML=totaltime
+        var totaldate=date+"/"+mon+ "/"+yy
+        document.getElementById("date").innerHTML=totaldate
+        var totalday=d
+        document.getElementById("day").innerHTML=totalday
+        var totalseconds=ss
+        document.getElementById("seconds").innerHTML=totalseconds
+        var update=setTimeout(function(){raju()},1000)
+        console.log(hh,min,ss,mon,d,yy,date)
+    }
+
+    </script>
+    
+</body>
+</html>
